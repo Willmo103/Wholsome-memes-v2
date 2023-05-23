@@ -12,7 +12,9 @@ class User(UserMixin, db.Model):
     id: int = db.Column(db.Integer, primary_key=True)
     email: str = db.Column(db.String(120), unique=True, nullable=True)
     password: str = db.Column(db.String(120), nullable=False)
-    created_at: str = db.Column(db.TIMESTAMP(timezone = True), nullable=False, server_default=db.func.now())
+    created_at: str = db.Column(
+        db.TIMESTAMP(timezone=True), nullable=False, server_default=db.func.now()
+    )
 
     def set_password(self, password) -> None:
         self.password = generate_password_hash(password)

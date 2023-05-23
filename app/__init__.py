@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+
 # from .utils import init_db_config, init_uploads_folder, init_secret_key
 import dotenv, os
+
 # from flask_migrate import Migrate
 
 # set the project root directory as an environment variable to be used in other modules
@@ -38,12 +40,11 @@ class Config:
     ADMIN_SECRET = os.environ.get("ADMIN_SECRET")
 
 
-
 # create an instance of the Config class
 conf = Config()
 
 # initialize the database
-db:SQLAlchemy = SQLAlchemy()
+db: SQLAlchemy = SQLAlchemy()
 
 # initialize the login manager
 login_manager = LoginManager()
