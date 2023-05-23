@@ -43,7 +43,7 @@ class Config:
 conf = Config()
 
 # initialize the database
-db = SQLAlchemy()
+db:SQLAlchemy = SQLAlchemy()
 
 # initialize the login manager
 login_manager = LoginManager()
@@ -73,10 +73,10 @@ def create_app():
         from . import models
 
         # register the blueprints
-        app.register_blueprint(routes.endpoint)
+        # app.register_blueprint(routes.endpoint)
 
         # create the database tables if they do not exist
-        db.create_all()
+        # db.create_all()
 
         # return the app instance
         return app

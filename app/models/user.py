@@ -1,9 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import db, login_manager
-from app.models.note import Note
-from app.models.file import File
-from sqlalchemy import TIMESTAMP
 
 
 @login_manager.user_loader
@@ -15,7 +12,7 @@ class User(UserMixin, db.Model):
     id: int = db.Column(db.Integer, primary_key=True)
     email: str = db.Column(db.String(120), unique=True, nullable=True)
     password: str = db.Column(db.String(120), nullable=False)
-    created_at: str = db.Column(TIMESTAMP(timezone = True), nullable=False, server_default=db.func.now())
+    created_at: str = db.Column(db.TIMESTAMP(timezone = True), nullable=False, server_default=db.func.now())
 
     def set_password(self, password) -> None:
         self.password = generate_password_hash(password)
