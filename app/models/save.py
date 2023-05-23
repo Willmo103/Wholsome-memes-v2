@@ -16,3 +16,9 @@ class Save(db.Model):
         primary_key=True,
         nullable=False,
     )
+
+@staticmethod
+def save_meme(user_id: int, meme_id: int) -> None:
+    save = Save(user_id=user_id, meme_id=meme_id)
+    db.session.add(save)
+    db.session.commit()

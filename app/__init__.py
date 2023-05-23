@@ -61,10 +61,10 @@ def create_app():
     app.config.from_object(Config)
 
     # initialize the database
-    db.init_app(app)
+    # db.init_app(app)
 
     # initialize the login manager
-    login_manager.init_app(app)
+    # login_manager.init_app(app)
 
     # using the app context, register the blueprints and models
     with app.app_context():

@@ -4,12 +4,6 @@ from app.models import User
 from app.forms import LoginForm, RegistrationForm
 from . import endpoint
 
-__all__ = [
-    "login",
-    "logout",
-    "register",
-]
-
 
 @endpoint.route("/login", methods=["GET", "POST"])
 def login():
